@@ -11,9 +11,13 @@ const quizContainer = document.querySelector('.quiz-container');
 const quiz = document.querySelector('#quiz');
 const formEnd = document.querySelector('.form-end');
 const nextBtn = document.querySelector('#next');
+const finishBtn = document.querySelector('#finish');
 const submitBtn = document.querySelector('#replay');
 const questionCounter = document.querySelector('#question-counter');
 const scoreCounter = document.querySelector('#score-counter');
+const result = document.querySelector('#result');
+const header = document.querySelector('.header');
+const navigation = document.querySelector('.navigation');
 
 
 //Event Listeners
@@ -81,6 +85,8 @@ const questions = [
 
 //Display questions in UI
 function displayQuestions(questions){
+  result.style.display = 'none';
+
   let html = '';
   let question = '';
   let options = '';
@@ -207,14 +213,26 @@ function showSlide(n){
 
   if(currentSlide === slides.length - 1){
      nextBtn.style.display = 'none';
-     submitBtn.style.display = 'inline-block';
+     finishBtn.style.display = 'inline-block';
   } else {
-     submitBtn.style.display = 'none';
+     finishBtn.style.display = 'none';
      nextBtn.style.display = 'inline-block';
   }
   decutible = true;
 }
 showSlide(currentSlide)
+
+finishBtn.addEventListener('click', (e) => {
+  const finalScore = document.querySelector('#finalScore');
+  finalScore.textContent = `Your Score: ${totalScore}`;
+  result.style.display = 'block';
+  header.style.display = 'none';
+  quiz.style.display = 'none';
+  navigation.style.display = 'none';
+
+
+  e.preventDefault;
+})
 
 function nextSlide(){
   showSlide(currentSlide + 1);

@@ -75,7 +75,7 @@ body {
   margin-top: 20px;
 }
 
-#next, #replay {
+#next, #replay, #finish {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 20px;
@@ -91,6 +91,18 @@ body {
 
 #next:hover, #replay:hover {
   background-color: #2d5074;
+}
+
+#finalScore {
+  font-size: 30px;
+  text-align: center;
+}
+
+#replay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media(min-width: 380px) {
